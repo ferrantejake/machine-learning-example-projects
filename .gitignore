@@ -1,0 +1,24 @@
+# VSCode
+.vscode
+
+# Conda
+bin
+compiler_compat
+conda-meta
+doc
+etc
+include
+knn_compare_model.png
+lib
+libexec
+mkspecs
+phrasebooks
+plugins
+qml
+readme.md
+resources
+share
+ssl
+translations
+var
+x86_64-conda_cos6-linux-gnu
