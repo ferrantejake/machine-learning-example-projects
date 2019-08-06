@@ -12,26 +12,17 @@ x_train, x_test, y_train, y_test = train_test_split( \
     stratify=diabetes['Outcome'], random_state=66)
 
 ## KNN implmentation
-training_accuracy = []
-test_accuracy = []
-neighbor_settings = range(1,21)
+num_neighbors = 3
+knn = KNeighborsClassifier(n_neighbors=num_neighbors)
+knn.fit(x_train, y_train)
 
-for n_neighbors in neighbor_settings:
-    # build the model
-    knn = KNeighborsClassifier(n_neighbors=n_neighbors)
-    knn.fit(x_train, y_train)
-    # record training set accuracy
-    score = knn.score(x_train, y_train)
-    training_accuracy.append(score)
-    # record test set accuracy
-    score = knn.score(x_test, y_test)
-    test_accuracy.append(score)
+print('Accuracy of K-NN ({}) classifier on training set: {:.2f}'.format(num_neighbors, knn.score(x_train, y_train)))
+print('Accuracy of K-NN ({}) classifier on test set: {:.2f}'.format(num_neighbors, knn.score(x_test, y_test)))
 
-# Plotting
-plt.plot(neighbor_settings, training_accuracy, label="training accuracy")
-plt.plot(neighbor_settings, test_accuracy, label="test accuracy")
-plt.ylabel("Accuracy")
-plt.xlabel("n_neighbors")
-plt.legend()
-# plt.savefig('knn_compare_model')
-plt.show()
+## We saw that checking 17 neighbors worked better..
+num_neighbors = 17
+knn = KNeighborsClassifier(n_neighbors=num_neighbors)
+knn.fit(x_train, y_train)
+
+print('Accuracy of K-NN ({}) classifier on training set: {:.2f}'.format(num_neighbors, knn.score(x_train, y_train)))
+print('Accuracy of K-NN ({}) classifier on test set: {:.2f}'.format(num_neighbors, knn.score(x_test, y_test)))
