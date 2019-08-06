@@ -7,4 +7,3 @@ Projects have links to the article in the project readme.
 
 
 Ths is a persona project for me. Just trying to get better at this thing and refresh on my machine learning.
-P!lotG04012039
